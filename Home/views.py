@@ -2,8 +2,9 @@ from django.shortcuts import render , HttpResponse
 from Home.models import Sell
 # Create your views here.
 def index(request):
+    products=Sell.objects.all()  # This line is not necessary unless you want to fetch all Sell objects
     context = {
-        'variable': 'this is sent'
+        'products': products
     }
     return render(request, 'hello.html', context)
     # return HttpResponse("Hello, this is the Home page of the Django project.")
