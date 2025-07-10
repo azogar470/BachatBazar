@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}BachatBazar{% endblock title %}
+{% block body %}
+<div  style="margin-bottom: 2rem;" >
+    <img src="/static/banner.png" alt="Image 1"
+      style="width: 80%;
+      
+             max-width: 800px;
+             display: block;
+             margin-left: auto;
+             margin-right: auto;
+             border-radius: 20px;
+             box-shadow: 0 4px 10px rgba(0,0,0,0.3);">
+</div>
+
+
+
+<div class="product-wrapper">
+  <div class="product-card">
+    <img src="/static/placeholder.png" alt="Product Image">
+    <div class="product-info">
+      <h3>Product Title</h3>
+      <p class="price">₹999</p>
+      <button>Add to Cart</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img src="/static/placeholder.png" alt="Product Image">
+    <div class="product-info">
+      <h3>Product Title</h3>
+      <p class="price">₹799</p>
+      <button>Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Repeat product-card for more products -->
+</div>
+
+{% endblock body %}
