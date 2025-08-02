@@ -15,11 +15,12 @@ import dj_database_url
 
 
 import os
+import os
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': os.environ.get('dhbinxqqe'),
-    'API_KEY': os.environ.get('269695855836624'),
-    'API_SECRET': os.environ.get('qhETUJeKN16qM4qU497egq-RL2w'),
+    'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.environ.get('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET'),
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
