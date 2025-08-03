@@ -15,7 +15,6 @@ import dj_database_url
 
 
 import os
-import os
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME'),
@@ -100,13 +99,28 @@ WSGI_APPLICATION = 'hello.wsgi.application'
 # }
 
 
-DATABASES = {
-    'default': dj_database_url.config(
-        default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),  # fallback for local dev
-        conn_max_age=600,  # keep the connection open for reuse
-        ssl_require=True   # required by Render
-    )
-}
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),  # fallback for local dev
+#         conn_max_age=600,  # keep the connection open for reuse
+#         ssl_require=True   # required by Render
+#     )
+# }
+# import os
+# import dj_database_url
+
+# Always parse the URL (defaulting to SQLite for dev)
+db_config = dj_database_url.config(
+    default='sqlite:///' + str(BASE_DIR / 'db.sqlite3'),
+    conn_max_age=600,
+)
+
+# Only add sslmode if we're really on Postgres (e.g. in Render)
+if db_config['ENGINE'] == 'django.db.backends.postgresql':
+    db_config['OPTIONS'] = {'sslmode': 'require'}
+
+DATABASES = {'default': db_config}
+
 
 
 
