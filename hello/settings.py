@@ -98,6 +98,7 @@ WSGI_APPLICATION = 'hello.wsgi.application'
 #     }
 # }
 
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "hello.settings")
 
 # DATABASES = {
 #     'default': dj_database_url.config(
